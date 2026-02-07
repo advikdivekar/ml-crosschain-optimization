@@ -1,1 +1,38 @@
-my file 
+Day 1: 
+Sat 7th 2026, 15:50 PM IST 
+
+For me, Day 1 is to learn basic networking and cloud concepts that are required to understand distributed systems and blockchain infrastructure.
+
+Topics to Be Learned : 
+
+1. Networking Basics
+
+Concepts : 
+A. What is network latency
+B. What is round-trip time (RTT)
+C. Why physical distance affects communication delay
+
+Goal
+To understand latency as a time delay in network communication.
+
+
+2. RPC Nodes
+
+Concepts:
+A. What an RPC (Remote Procedure Call) node is
+B. Why RPC nodes affect application and blockchain performance
+C. Common reasons for RPC failure or timeout
+
+Goal
+To understand RPC nodes as the main entry point for interacting with a blockchain network.
+
+
+3. Cloud Computing Basics
+
+Concepts :
+A. What a cloud region is
+B. Basic idea of CPU usage
+C. Basic idea of network usage
+
+Goal
+To understand cloud computing as distributed machines located in different geographic regions.
