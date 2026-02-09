@@ -1,1 +1,17 @@
+Day 2
 
+Monday, Feb 9th, 2026 - 11:58 PM IST 
+
+Learning about the basic computer networks specifically about the network latency. 
+
+Network latency or Delay id defined to be the time take for the entire message arrive at the destination from the time it is sent out from the source node. 
+
+There are 4 components of Network Latency: 
+a. Transmission Delay/Time - Message Size/Bandwidth 
+b. Propagation Delay/Time - Distance/Propagation Speed 
+c. Queueing Delay/Time - Based on the network Traffic, if high traffic then queueing time increases
+d. Processing Delay/Time - time taken by the node to process the message
+
+Also learnt about Bandwidth and Throughput.
+
+Note : Throughput < Bandwidth 
