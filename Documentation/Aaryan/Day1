@@ -1,1 +1,72 @@
+Day 1
+Saturday, 7th Feb 2026 — 17:30 PM IST
 
+Focus: Understanding the Basics Behind Blockchain Infrastructure
+
+On Day 1, I focused on understanding the absolute fundamentals required to start working on blockchain systems and cross-chain research. Since I come from a non-computer background, the goal was not to build anything yet, but to understand how blockchain systems are accessed and why performance issues exist.
+
+1.) Networking Basics (Conceptual Understanding)
+What I Learned:
+
+-Network latency is the delay between sending a request (like asking for data) and receiving a response.
+-Round-Trip Time (RTT) measures how long it takes for a request to go from my machine to a server and back.
+-Physical distance matters because blockchain nodes and servers are located in different geographic regions, and data must travel through physical network infrastructure.
+
+**Why This Matters for My Research**
+
+Cross-chain transactions depend on multiple networks and servers. Delays in communication can compound, increasing transaction time and cost.
+
+2️.) RPC Nodes (First Exposure)
+What I Learned:
+
+-An RPC (Remote Procedure Call) node is how applications communicate with a blockchain.
+-Wallets and decentralized applications do not talk to the blockchain directly — they send requests through RPC nodes.
+-The quality of an RPC node (speed, reliability, location) affects:
+  a) Transaction confirmation time
+  b) Failure rates
+  c) User experience
+
+Practical Exposure
+
+-I explored blockchain explorers such as Etherscan / Arbiscan.
+-I learned that these explorers use RPC endpoints internally to read blockchain data.
+-I discovered that most applications use fixed RPC endpoints, which can be inefficient under congestion.
+
+**Why This Matters for My Research**
+
+RPC latency and failures are a major hidden factor in cross-chain delays, yet they are often ignored in transaction optimization strategies.
+
+3️.) Cloud Computing Basics (Conceptual)
+What I Learned
+
+-Blockchain infrastructure runs on cloud-hosted machines distributed across different regions.
+-Cloud regions determine:
+  a) Network latency
+  b) RPC responsiveness
+  c) Reliability of transaction submission
+-Basic system metrics such as CPU usage and network usage indicate how stressed a machine or service is.
+
+**Why This Matters for My Research**
+
+Cross-chain systems rely on off-chain infrastructure (RPCs, relayers, servers). Cloud performance directly influences transaction success and latency.
+
+4️.) First Hands-On Steps Toward Data Collection
+What I Did
+
+-Created accounts on blockchain explorers.
+-Attempted to generate API keys for accessing on-chain data.
+-Understood that datasets are not readily available for cross-chain performance and must be created manually.
+-Realized that research in this domain requires instrumenting live systems, not downloading static datasets.
+
+Key Realization
+
+I am not “finding” a dataset —
+I am building one by observing real-time blockchain behavior.
+
+**Outcome of Day 1**
+
+By the end of Day 1:
+
+-I understood the basic building blocks behind blockchain infrastructure.
+-I identified why network latency, RPC behavior, and cloud location are critical to cross-chain performance.
+-I set the conceptual foundation needed to begin systematic data collection in the following days.
