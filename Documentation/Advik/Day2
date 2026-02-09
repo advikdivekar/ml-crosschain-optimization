@@ -15,3 +15,10 @@ d. Processing Delay/Time - time taken by the node to process the message
 Also learnt about Bandwidth and Throughput.
 
 Note : Throughput < Bandwidth 
+
+Tuesday, Feb 10th, 2026 - 12:27 AM IST 
+
+Learnt about RTT i.e. Round Trip Time 
+
+RTT is the length of time it takes for a signal to be sent plus the length of time it takes for the acknowledgement of the signal to be received.
+So, RTT is approximately equal to (2 * the propagation time)
