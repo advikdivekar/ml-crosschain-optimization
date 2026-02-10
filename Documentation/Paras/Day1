@@ -1,1 +1,36 @@
+10 Feb, 2025 20:50 PM IST
+Day 1 of learning ML.
+
+Notes of the same:
+1. ML is basically a field of study that gives computers the ability to learn without being explicitly programmed.
+2. Tom Mtichell (1988) Well-posed Learning Problem: A Computer program is said to learn from experience E with respect to some task T and some performance mesasure P, if its performance on T, as measured by P, improves with experence E.
+3. The experience E would be the experince of having a checkers play program played tons of games against itself.
+Task T is the task of playing checkers. Performance measure P is the chance of this program winning the next game of checkers it plays agaisnt the next oppionent.
+4. Different tools of machine learning: 
+-> The widely used one is Supervised Learning. In this, you are given a dataset with (x,y) and the goal is to learn the mapping from x to y.
+
+"Regression Problem" - the term Regression refers tot he value y you are trying to predict is continous. Over Here y is a real number.
+Example for the same: The estimation of the cost of the house depending on the area of sq.feet. Over here y is a real number.
+Since for pracical purposes the prices are continous therefore, we call them housing price prediction to be a regression problem.
+
+"Classification Problem" - the term Classification means that y takes on discrete number of variables.
+Example for the same - The prediction of breast cancer weather it is malignant or not depnding on the size of the tumour.
+Since we have two values here of possible output 0 and 1, we call it a classification problem.
+
+For both of the above examples, x is only one-dimensional. There are other obviously more than 1-D for the value of x, this will be done by introducing multi-dimensional 
+values of x. For example, the case regarding prediction of the tumour based on the size of it also the age of the patient, the clump thickness, etc. these criterias bring in 
+the need for multi-dimensional values of x. There are kernels for the infinite long list of numbers to store multi-dimensional or for infinite dimensional values of x.
+
+Bascially, supervised learning is that we got to learn the function mapping of x to y.
+
+-> Unsupervised learning:
+I would be given a datset with no labels, just given inouts x and no y, and asked to find out something intersting from this data.
+The dataset looks like 2 clusters. A Cocktail Party problem is problem where you have noisy room and you stick multiple microphones into the room.
+In this way, no label reaches multiple microphones; an array of microphones; in a room of lots of people talking. How can you serparate out other peolpe's voices? So, this is unsupervised learning problem because,there are no label, you just stick microphones in the room and have it record different people's voices or overlapping voices. You have multipe users at the same time and then have it separate out people's voices.
+So in order to separate out this algorithm we use ICA - Independant Components Analysis. 
+
+-> Reinforcement Learning:
+It basically is how you train a dog. When the dog does something good you go "Good dog!" and if ti does something bad you go "Bad Dog!"
+This the similar way in which reinforcement learning works.
+ This has been amazing for making games and other stuff like that which also includes optimizing robots.
 
