@@ -1,1 +1,54 @@
 
+Wednesday, Feb 11th, 2026 – 12:32 AM IST
+Worked on collecting real on-chain data for the research project.
+Objective:
+To build the foundational dataset required for optimizing cross-chain cryptocurrency transfers.
+
+Initially attempted to use blockchain explorer APIs but encountered deprecation issues. Switched to direct RPC communication with Ethereum using a node provider, which is a more reliable and infrastructure-level method.
+
+Focused Data:
+
+Collected from Ethereum blocks:
+
+Block Number
+Block Timestamp
+Base Fee Per Gas
+Base Fee Per Gas:
+Under EIP-1559, the base fee is the minimum gas price required for a transaction to be included in a block. It dynamically changes based on network congestion.
+
+What Data Was Needed and Why:
+
+For cross-chain optimization, transaction cost depends heavily on gas prices.
+
+If gas is high → transfer becomes expensive
+If gas is low → transfer becomes cheaper
+
+Therefore, understanding historical gas behavior is necessary for making cost-aware decisions.
+
+How the Data Was Collected:
+
+Created a virtual Python environment
+Installed web3 library
+Connected to Ethereum via RPC
+Queried latest blocks
+Extracted baseFeePerGas and timestamp
+Stored data in CSV format
+What This Data Indicates:
+Base fee reflects demand for block space.
+
+High base fee → high congestion
+Low base fee → low congestion
+
+It acts as an economic congestion signal for the blockchain.
+
+Use of This Data:
+
+This dataset will be used to:
+
+Analyze gas volatility
+Identify congestion patterns
+Build predictive models for gas price behavior
+Ultimately, this helps determine optimal timing for cross-chain transfers.
+Conclusion of Day:
+
+Successfully moved from theoretical networking concepts to real blockchain data acquisition. Established the first economic signal layer for the research system.
