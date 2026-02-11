@@ -50,8 +50,43 @@ This dataset will be used to:
 
 Analyze gas volatility
 Identify congestion patterns
-Build predictive models for gas price behavior
-Ultimately, this helps determine optimal timing for cross-chain transfers.
-Conclusion of Day:
+Build predictive models for gas price behavior. 
 
-Successfully moved from theoretical networking concepts to real blockchain data acquisition. Established the first economic signal layer for the research system.
+
+Focused Data:
+
+Collected from Ethereum mainnet:
+
+a. Block Number
+b. Block Timestamp
+c. Base Fee Per Gas
+
+Total Blocks Collected: 50
+Storage Location: data/raw/eth_basefee.csv
+
+Method:
+
+a. Created isolated Python virtual environment
+b. Installed required libraries
+c. Connected directly to Ethereum via RPC provider
+d. Queried latest block number
+e. Fetched last 50 blocks
+f. Extracted baseFeePerGas and timestamp
+g. Stored data in structured CSV format
+
+Purpose of This Data:
+
+Under EIP-1559, Base Fee Per Gas represents the minimum cost required to include a transaction in a block. It dynamically adjusts based on network congestion.
+This dataset captures the economic state of the Ethereum network over time.
+
+
+Relevance to Research:
+Since cross-chain transaction cost depends heavily on gas prices, understanding base fee behavior is essential for:
+Cost estimation
+Congestion awareness
+Timing optimization
+This step establishes the initial economic baseline of the Ethereum chain.
+
+
+Next Step:
+Increase dataset size and begin analyzing gas behavior patterns.
