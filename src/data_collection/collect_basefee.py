@@ -1,39 +1,62 @@
 from web3 import Web3
-import csv
+import pymysql
 
 INFURA_URL = "https://mainnet.infura.io/v3/f6dccf73ccd64c06a5e7734325927bb9"
 
+# Connect to Ethereum
 w3 = Web3(Web3.HTTPProvider(INFURA_URL))
 
 if not w3.is_connected():
     print("Connection failed")
     exit()
 
-file_path = "data/raw/eth_basefee.csv"
+conn = pymysql.connect(
+    host="127.0.0.1",
+    port=3306,
+    user="root",
+    password="StrongPassword123",
+    database="eth_research",
+    autocommit=True
+)
 
+
+cursor = conn.cursor()
+
+# Force bulk backfill (temporary)
 latest_block = w3.eth.block_number
+last_block = latest_block - 20000
 
-# Change this number to 5000 or 10000
-BLOCK_RANGE = 5000
+# Collect new blocks
+for block_number in range(last_block + 1, latest_block + 1):
 
-start_block = latest_block - BLOCK_RANGE
-
-with open(file_path, "w", newline="") as file:
-    writer = csv.writer(file)
-    writer.writerow(["block_number", "timestamp", "base_fee_per_gas"])
-
-    for block_number in range(start_block, latest_block):
+    try:
         block = w3.eth.get_block(block_number)
 
         base_fee = block.get("baseFeePerGas", 0)
 
-        writer.writerow([
+        gas_used = block["gasUsed"]
+        gas_limit = block["gasLimit"]
+        fullness = gas_used / gas_limit if gas_limit != 0 else 0
+
+        cursor.execute("""
+            INSERT IGNORE INTO blocks
+            (block_no, timestamp_data, base_fee, gas_used, gas_limit, block_fullness)
+            VALUES (%s, %s, %s, %s, %s, %s)
+        """, (
             block.number,
             block.timestamp,
-            base_fee
-        ])
+            base_fee,
+            gas_used,
+            gas_limit,
+            fullness
+        ))
 
-        print(f"Block Collected from the Ethereum Gas along with Gas Fee and its block number is : {block.number}")
+        print(f"Data traced from Infura Server to Local Server MariaDB for Block Number :{block.number}")
 
-print("Finished collecting large dataset.")
+    except Exception as e:
+        continue
 
+conn.commit()
+conn.close()
+
+print("Infura --> MariaDB connection completed.")
