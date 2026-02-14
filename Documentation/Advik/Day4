@@ -43,3 +43,26 @@ What I Learned Technically
 * Persistence requires controlled schema and proper commit handling.
 * Always test insertion using COUNT(*) after running the script.
 
+
+What This Data Represents
+* Base fee → Network fee pressure (EIP-1559 mechanism)
+* Gas used → Amount of computation consumed in a block
+* Gas limit → Maximum capacity of a block
+* Block fullness → Congestion indicator
+Higher fullness leads to base fee increase. Lower fullness leads to base fee decrease.
+This confirms the congestion–fee relationship.
+
+
+
+Why This Step Was Important for Research
+Our research is about optimizing cross-chain transfers.
+Gas fees fluctuate due to:
+* Network congestion
+* Block usage
+* Overall network behavior
+Without historical structured data, we cannot:
+* Model gas volatility
+* Predict optimal transaction timing
+* Compare cross-chain efficiency
+Today’s work built the foundation dataset required for further modeling and analysis.
+
