@@ -139,3 +139,26 @@ The \(i^{th}\) training example is written as:
 
 This notation allows us to refer to any specific example in the dataset when training the model.
 
+n = number of features you have for the supervised learning problems
+
+3. Choosing parameters theta :
+Choose theta such that h(x) and y for training examples.
+
+J (Q) = 1/2 <img width="445" height="114" alt="image" src="https://github.com/user-attachments/assets/c55191c2-8cc4-4512-bfe1-db3d3f4357a6" />
+
+This equation is used for finding out the minmisation of the concept of J(Q).
+
+4. Implementing an algorithm to see how does minimization of J(Q) takes place:
+Using the algorithm - Gradient descent.
+We satrt with the value of Q <img width="153" height="50" alt="image" src="https://github.com/user-attachments/assets/8616ae43-e145-4164-a7c8-3c7a0289f0e3" />
+
+Keep changing Q to reduce J (Q).
+Each separate Gradient descent in as follows -  in this example the traing set is fixed. 
+One step can be implented as follows:
+<img width="353" height="104" alt="image" src="https://github.com/user-attachments/assets/54901f82-20f9-45f1-b5ef-6dd1535556be" />
+
+here, alpha = learning rate.
+
+<img width="484" height="138" alt="image" src="https://github.com/user-attachments/assets/4e059160-7f9b-4441-974c-3453c2225aa9" />
+
+
