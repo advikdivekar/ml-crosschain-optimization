@@ -17,3 +17,20 @@ From Ethereum blocks, I collected:
 
 This data helps measure congestion and fee behavior on the Ethereum network.
 
+
+Mistakes I Made
+1. I had multiple MariaDB connections (localhost and localhost 2). My Python script was inserting into one server, while DBeaver was connected to another. That is why data appeared to not be saved.
+2. I was dropping the database in DBeaver using: DROP DATABASE IF EXISTS eth_research; This erased previously inserted data.
+3. I did not explicitly specify host and port in the Python connection. I used "localhost" instead of "127.0.0.1".
+4. I forgot to commit transactions properly in some versions of the script.
+
+
+How I Solved It
+1. Deleted the extra connection and kept only one localhost:3306.
+2. Updated the Python connection to use:
+    * host = "127.0.0.1"
+    * port = 3306
+    * autocommit = True
+3. Verified the database connection using: SELECT DATABASE();
+4. Verified row count directly from Python using: SELECT COUNT(*) FROM blocks;
+This confirmed that data was actually being stored.
