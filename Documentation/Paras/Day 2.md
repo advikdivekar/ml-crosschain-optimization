@@ -73,12 +73,69 @@ To simplify this notation and make it more compact, we use vectorized forms in m
 <img width="227" height="85" alt="image" src="https://github.com/user-attachments/assets/8d1ec6db-64f7-473b-b249-dcd1792f3b78" />
 <img width="142" height="110" alt="image" src="https://github.com/user-attachments/assets/4ebe75a7-98d4-4a96-91e3-c5e95b15fbee" /> <img width="139" height="157" alt="image" src="https://github.com/user-attachments/assets/acc7716a-76d2-44a8-9e20-213ae3174c97" />
 
-so here the theta becomes a three dimensional parameter and the features become a three - dimensional feature where:
-Xo = 1, X1 = size of the house and X2 = number of bedrooms in the house 
+---
 
-Q = 'parameters' 
-m = number of training examples
-x = inputs/ features
-y = output/ target variable
-(x, y) = one training example
-x^(i), y^(i) = i^th training example 
+## Vectorized Representation
+
+When we use multiple input features, we introduce a **parameter vector** and a **feature vector**.
+
+We define the feature vector as:
+
+\[
+x =
+\begin{bmatrix}
+x_0 \\
+x_1 \\
+x_2
+\end{bmatrix}
+\]
+
+Where:
+- \(x_0 = 1\) (bias term)  
+- \(x_1\) = size of the house  
+- \(x_2\) = number of bedrooms  
+
+The parameter vector is:
+
+\[
+\theta =
+\begin{bmatrix}
+\theta_0 \\
+\theta_1 \\
+\theta_2
+\end{bmatrix}
+\]
+
+So the hypothesis becomes:
+
+\[
+h(x) = \theta^T x
+\]
+
+This means the hypothesis is the **dot product** of the parameter vector and the feature vector.
+
+---
+
+## Training Set Notation
+
+We use the following notation in supervised learning:
+
+- \(\theta\) = model parameters  
+- \(m\) = number of training examples  
+- \(x\) = input features  
+- \(y\) = output (target variable)  
+
+A single training example is written as:
+
+\[
+(x, y)
+\]
+
+The \(i^{th}\) training example is written as:
+
+\[
+(x^{(i)}, y^{(i)})
+\]
+
+This notation allows us to refer to any specific example in the dataset when training the model.
+
