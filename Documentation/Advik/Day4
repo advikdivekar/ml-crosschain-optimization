@@ -66,3 +66,11 @@ Without historical structured data, we cannot:
 * Compare cross-chain efficiency
 Today’s work built the foundation dataset required for further modeling and analysis.
 
+
+
+Personal Perspective
+Today I understood that building a data system is not just about writing code. It involves:
+* Correct environment setup
+* Consistent database targeting
+* Verification after every step
+* Logical infrastructure debugging
