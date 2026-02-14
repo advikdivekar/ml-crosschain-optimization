@@ -34,3 +34,12 @@ How I Solved It
 3. Verified the database connection using: SELECT DATABASE();
 4. Verified row count directly from Python using: SELECT COUNT(*) FROM blocks;
 This confirmed that data was actually being stored.
+
+
+What I Learned Technically
+* Infrastructure mismatches can cause invisible errors.
+* Always verify the database target before debugging logic.
+* CSV is not suitable for scalable blockchain data collection.
+* Persistence requires controlled schema and proper commit handling.
+* Always test insertion using COUNT(*) after running the script.
+
