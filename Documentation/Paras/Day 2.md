@@ -18,3 +18,10 @@ In order to simplify this notation, making it a little more comapact,
 
 so here the theta becomes a three dimensional parameter and the features become a three - dimensional feature where:
 Xo = 1, X1 = size of the house and X2 = number of bedrooms in the house 
+
+Q = 'parameters' 
+m = number of training examples
+x = inputs/ features
+y = output/ target variable
+(x, y) = one training example
+x^(i), y^(i) = i^th training example 
