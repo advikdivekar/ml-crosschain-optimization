@@ -5,3 +5,15 @@ Today I worked on building the on-chain data pipeline and storing Ethereum block
 Initially, I was storing data in a CSV file. The problem I faced was that data was either getting overwritten or not persisting properly when the script was run multiple times. CSV is not reliable for continuous structured data collection.
 So I decided to shift from CSV to MariaDB for proper storage and persistence.
 
+What Data I Collected
+From Ethereum blocks, I collected:
+
+* Block number
+* Timestamp
+* Base fee per gas
+* Gas used
+* Gas limit
+* Block fullness (gas_used / gas_limit)
+
+This data helps measure congestion and fee behavior on the Ethereum network.
+
