@@ -139,26 +139,235 @@ The \(i^{th}\) training example is written as:
 
 This notation allows us to refer to any specific example in the dataset when training the model.
 
-n = number of features you have for the supervised learning problems
+---
 
-3. Choosing parameters theta :
-Choose theta such that h(x) and y for training examples.
+## Number of Features
+
+We define:
+
+- \(n\) = number of **features** in a supervised learning problem  
+
+So the feature vector has dimension:
+
+\[
+x =
+\begin{bmatrix}
+x_0 \\
+x_1 \\
+\vdots \\
+x_n
+\end{bmatrix}
+\]
+
+Where:
+- \(x_0 = 1\) (bias term)
+- \(x_1, x_2, \ldots, x_n\) are the actual input features
+
+Accordingly, the parameter vector \(\theta\) also has \(n + 1\) elements.
+
+---
+
+## 3. Choosing the Parameters \(\theta\)
+
+The goal of learning is to choose the parameter vector \(\theta\) such that the hypothesis:
+
+\[
+h(x) = \theta^T x
+\]
+
+is as close as possible to the true output \(y\) for all training examples.
+
+In other words:
+
+> We want to choose \(\theta\) so that the predicted values \(h(x)\) are as close as possible to the actual values \(y\) in the training set.
+
 
 J (Q) = 1/2 <img width="445" height="114" alt="image" src="https://github.com/user-attachments/assets/c55191c2-8cc4-4512-bfe1-db3d3f4357a6" />
 
 This equation is used for finding out the minmisation of the concept of J(Q).
 
-4. Implementing an algorithm to see how does minimization of J(Q) takes place:
-Using the algorithm - Gradient descent.
-We satrt with the value of Q <img width="153" height="50" alt="image" src="https://github.com/user-attachments/assets/8616ae43-e145-4164-a7c8-3c7a0289f0e3" />
+---
 
-Keep changing Q to reduce J (Q).
-Each separate Gradient descent in as follows -  in this example the traing set is fixed. 
+## 4. Implementing an Algorithm to Minimize \(J(\theta)\)
+
+To find the best parameters \(\theta\), we need to minimize the **cost function** \(J(\theta)\).  
+This tells us how wrong our predictions are.
+
+We do this using an optimization algorithm called **Gradient Descent**.
+
+---
+
+### Gradient Descent
+
+We start with an initial value of the parameter vector \(\theta\).  
+Then, we repeatedly update \(\theta\) in a way that reduces the value of the cost function \(J(\theta)\).
+
+In each step, we move \(\theta\) in the direction that makes \(J(\theta)\) smaller.
+
+In simple terms:
+
+> Start with some \(\theta\), and keep changing it until the hypothesis \(h(x)\) fits the training data as well as possible.
+<img width="153" height="50" alt="image" src="https://github.com/user-attachments/assets/8616ae43-e145-4164-a7c8-3c7a0289f0e3" />
+
+We keep updating the parameter vector \(\theta\) in order to **reduce the cost function** \(J(\theta)\).
+
+In **each step of Gradient Descent**, the training set is kept **fixed**.  
+Only the parameters \(\theta\) are changed.
+
+So the process is:
+
+> Keep changing \(\theta\) to make \(J(\theta)\) smaller, while the training data remains the same.
+
 One step can be implented as follows:
 <img width="353" height="104" alt="image" src="https://github.com/user-attachments/assets/54901f82-20f9-45f1-b5ef-6dd1535556be" />
 
 here, alpha = learning rate.
 
 <img width="484" height="138" alt="image" src="https://github.com/user-attachments/assets/4e059160-7f9b-4441-974c-3453c2225aa9" />
+
+<img width="488" height="105" alt="image" src="https://github.com/user-attachments/assets/6d168ace-8ca0-41cc-8c09-3a097d83e28b" /> 
+
+---
+
+## Gradient Descent Update Rule
+
+The Gradient Descent algorithm works by **repeating updates until convergence**.  
+For each update, we update every parameter:
+
+\[
+j = 0, 1, 2, \ldots, n
+\]
+
+If we do this, we will eventually find a **good set of parameters** \(\theta\) that fits the training data well.
+
+---
+
+## Cost Function Properties
+
+If the cost function \(J(\theta)\) is defined for **linear regression** as the **sum of squared errors**, then:
+
+\[
+J(\theta)
+\]
+
+is a **quadratic function**.
+
+This means:
+- It has **no local minima**
+- It has **only one global minimum**
+
+So Gradient Descent will always converge to the **best possible solution**.
+
+---
+
+## Batch Gradient Descent
+
+Linear Regression with Gradient Descent is still one of the **most widely used learning algorithms** today.
+
+Gradient Descent is also called **Batch Gradient Descent** because:
+
+> In each update, the algorithm uses **all** training examples to compute the gradient.
+
+The entire training set is called a **batch**.
+
+This can become slow when:
+- The dataset is very large
+- We need to scan through **all examples** many times
+
+---
+
+## Stochastic Gradient Descent (Alternative)
+
+To avoid processing the entire dataset each time, we use an alternative called  
+**Stochastic Gradient Descent (SGD)**.
+
+It works as follows:
+
+\[
+\textbf{Repeat:}
+\]
+
+\[
+\text{for } i = 1 \text{ to } m:
+\]
+
+\[
+\theta_j := \theta_j - \alpha \big( h_\theta(x^{(i)}) - y^{(i)} \big) x_j^{(i)}
+\]
+
+Where:
+- \(\alpha\) = learning rate  
+- \(m\) = number of training examples  
+- \(x^{(i)}, y^{(i)}\) = the \(i^{th}\) trainin
+
+<img width="327" height="238" alt="image" src="https://github.com/user-attachments/assets/a244b0ae-a6a5-4c1d-9771-67d63c36553a" />
+
+
+---
+
+## Stochastic Gradient Descent (SGD)
+
+This algorithm is called **Stochastic Gradient Descent**.
+
+Instead of scanning through the **entire dataset** to compute each update, SGD uses an **inner loop** that goes through:
+
+\[
+i = 1 \text{ to } m
+\]
+
+and performs a Gradient Descent step using **only one training example at a time**.
+
+This makes the algorithm much faster for very large datasets.
+
+---
+
+## Convergence Behavior
+
+- **Batch Gradient Descent** moves smoothly toward the **global minimum** and eventually stops there.
+- **Stochastic Gradient Descent** does **not converge exactly** to the minimum.  
+  Instead, it keeps **oscillating** around the minimum due to the randomness of single-example updates.
+
+---
+
+## Monitoring Convergence
+
+To determine when to stop Gradient Descent, we plot:
+
+\[
+J(\theta) \text{ vs. time (iterations)}
+\]
+
+When the cost function stops decreasing significantly, we stop the algorithm.
+
+---
+
+## Why Linear Regression is Nice
+
+One of the best properties of **Linear Regression** is that:
+
+- \(J(\theta)\) has **no local optima**
+- It has only **one global minimum**
+
+So we have fewer convergence and debugging problems compared to many other learning algorithms.
+
+---
+
+## Iterative Nature of Gradient Descent
+
+Gradient Descent is an **iterative algorithm**.  
+It must be run for **many steps** in order to approach the global minimum.
+
+---
+
+## Closed-Form Solution for Linear Regression
+
+For **linear regression**, there is actually a way to compute the **global minimum directly**, without using Gradient Descent at all.
+
+This is known as the **Normal Equation**, which solves for \(\theta\) in a single step.
+
+
+<img width="312" height="226" alt="image" src="https://github.com/user-attachments/assets/3781b1d9-f218-4e4e-8bb2-6768107e8e9d" />
+
+<img width="242" height="73" alt="image" src="https://github.com/user-attachments/assets/ad4e7412-90e3-4d1d-bacf-07d69739c5ba" />
 
 
