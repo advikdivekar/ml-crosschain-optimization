@@ -55,28 +55,7 @@ Lower confirmation and execution delays
 Improved transaction reliability
 Better understanding of how infrastructure performance affects blockchain transactions
 
-Technologies Used:
 
-Python
-Blockchain APIs (Ethereum, Polygon, or similar)
-Web3 libraries
-Machine learning libraries (for prediction models)
-Cloud platforms for infrastructure monitoring
-Data analysis and visualization tools
-
-Repository Structure (Planned):
-
-├── data/                 # Collected blockchain, network, and cloud data
-├── scripts/              # Data collection and monitoring scripts
-├── analysis/             # Data analysis notebooks
-├── models/               # Prediction models
-├── optimization/         # Transaction optimization logic
-├── results/              # Evaluation results and plots
-├── README.md
-
-Academic Context:
-
-This project is conducted as part of an academic research study in the domain of Blockchain Technology and Distributed Systems, with a focus on machine learning–based optimization and infrastructure-aware transaction execution.
 
 License:
 

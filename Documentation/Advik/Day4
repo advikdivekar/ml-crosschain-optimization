@@ -1,0 +1,76 @@
+Day 3
+Saturday, Feb 14th, 2026 – 12:45 PM IST
+
+Today I worked on building the on-chain data pipeline and storing Ethereum block data into MariaDB instead of CSV.
+Initially, I was storing data in a CSV file. The problem I faced was that data was either getting overwritten or not persisting properly when the script was run multiple times. CSV is not reliable for continuous structured data collection.
+So I decided to shift from CSV to MariaDB for proper storage and persistence.
+
+What Data I Collected
+From Ethereum blocks, I collected:
+
+* Block number
+* Timestamp
+* Base fee per gas
+* Gas used
+* Gas limit
+* Block fullness (gas_used / gas_limit)
+
+This data helps measure congestion and fee behavior on the Ethereum network.
+
+
+Mistakes I Made
+1. I had multiple MariaDB connections (localhost and localhost 2). My Python script was inserting into one server, while DBeaver was connected to another. That is why data appeared to not be saved.
+2. I was dropping the database in DBeaver using: DROP DATABASE IF EXISTS eth_research; This erased previously inserted data.
+3. I did not explicitly specify host and port in the Python connection. I used "localhost" instead of "127.0.0.1".
+4. I forgot to commit transactions properly in some versions of the script.
+
+
+How I Solved It
+1. Deleted the extra connection and kept only one localhost:3306.
+2. Updated the Python connection to use:
+    * host = "127.0.0.1"
+    * port = 3306
+    * autocommit = True
+3. Verified the database connection using: SELECT DATABASE();
+4. Verified row count directly from Python using: SELECT COUNT(*) FROM blocks;
+This confirmed that data was actually being stored.
+
+
+What I Learned Technically
+* Infrastructure mismatches can cause invisible errors.
+* Always verify the database target before debugging logic.
+* CSV is not suitable for scalable blockchain data collection.
+* Persistence requires controlled schema and proper commit handling.
+* Always test insertion using COUNT(*) after running the script.
+
+
+What This Data Represents
+* Base fee → Network fee pressure (EIP-1559 mechanism)
+* Gas used → Amount of computation consumed in a block
+* Gas limit → Maximum capacity of a block
+* Block fullness → Congestion indicator
+Higher fullness leads to base fee increase. Lower fullness leads to base fee decrease.
+This confirms the congestion–fee relationship.
+
+
+
+Why This Step Was Important for Research
+Our research is about optimizing cross-chain transfers.
+Gas fees fluctuate due to:
+* Network congestion
+* Block usage
+* Overall network behavior
+Without historical structured data, we cannot:
+* Model gas volatility
+* Predict optimal transaction timing
+* Compare cross-chain efficiency
+Today’s work built the foundation dataset required for further modeling and analysis.
+
+
+
+Personal Perspective
+Today I understood that building a data system is not just about writing code. It involves:
+* Correct environment setup
+* Consistent database targeting
+* Verification after every step
+* Logical infrastructure debugging
