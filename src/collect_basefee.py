@@ -1,7 +1,7 @@
 from web3 import Web3
 import pymysql
 
-INFURA_URL = "https://mainnet.infura.io/v3/f6dccf73ccd64c06a5e7734325927bb9"
+INFURA_URL = ""
 
 # Connect to Ethereum
 w3 = Web3(Web3.HTTPProvider(INFURA_URL))
